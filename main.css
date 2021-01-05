@@ -1,0 +1,131 @@
+html, body {
+    height: 100%;
+}
+
+#calc-container {
+    height: 100%;
+    background-color: slategray;
+    padding: 3vh 3vw;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 2fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 15px;
+    height: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 15px;
+    background-color: white;
+    border: 2px solid dimgray;
+    border-radius: 6px;
+    overflow-y: auto;
+}
+
+.grid-item {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #b9b9b9;
+    border-radius: 6px;
+    font-size: 2.5rem;
+}
+
+#calc-container div.grid-item:not(#results-display) {
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;
+}
+
+#calc-container div.grid-item:not(#results-display):hover {
+    filter: brightness(85%);
+    cursor: pointer;
+}
+
+#calc-container div.grid-item:not(#results-display):active {
+    border-color: black;
+}
+
+#results-display {
+    height: 100%;
+    grid-column: 1/5;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    min-height: 20vh;
+}
+
+#res-divs-container {
+    width: 100%;
+    padding: 10px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overflow-wrap: break-word;
+}
+
+#res-top {
+    width: 100%;
+    text-align: right;
+    font-size: 2rem;
+}
+
+#res-bottom {
+    width: 100%;
+    text-align: right;
+    font-size: 4rem;
+}
+
+.dark-grey {
+    background-color: #D2D2D2;
+}
+
+.light-grey {
+    background-color: #F3F3F3;
+}
+
+#equals {
+    background-color: #4D8BF1;
+    color: white;
+}
+
+@media only screen and (min-width: 600px) {
+    #results-display {
+        max-width: 570px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .grid-container {
+        width: 100%;
+    }
+
+    #calc-container {
+        padding: 0;
+    }
+
+    #results-display {
+        max-width: calc(100vw - 30px);
+    }
+
+    .grid-item {
+        font-size: 1.8rem;
+    }
+
+    #res-bottom {
+        font-size: 2.8rem;
+    }
+
+    #res-top {
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (max-height: 415px)  {
+    #results-display {
+        min-height: 30vh;
+    }
+}
